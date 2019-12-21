@@ -1,12 +1,8 @@
 """Packaging script for python-scpi"""
 import os
 import subprocess
-import sys
 
 import setuptools
-
-if sys.version_info < (3, 5):
-    raise RuntimeError("Minimum version python 3.5")
 
 GIT_VERSION = 'UNKNOWN'
 try:
@@ -19,12 +15,11 @@ setuptools.setup(
     version=os.getenv('PACKAGE_VERSION', '2.1.0+git.%s' % GIT_VERSION),
     author='Eero "rambo" af Heurlin',
     author_email='rambo@iki.fi',
-    packages=setuptools.find_packages(),
+    packages=['scpi'],
     license='GNU LGPL',
-    long_description=open('README.md', 'rt', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     description='Implement SCPI in pure Python',
-    install_requires=open('requirements.txt', 'rt', encoding='utf-8').readlines(),
+    install_requires=["pyserial", "async-timeout"],
     url='https://github.com/rambo/python-scpi',
     classifiers=(
         "Programming Language :: Python :: 3.5",
