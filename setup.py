@@ -16,7 +16,7 @@ except subprocess.CalledProcessError:
 
 setuptools.setup(
     name='scpi',
-    version=os.getenv('PACKAGE_VERSION', '2.1.0+git.%s' % GIT_VERSION),
+    version='2.1.0',
     author='Eero "rambo" af Heurlin',
     author_email='rambo@iki.fi',
     packages=setuptools.find_packages(),
